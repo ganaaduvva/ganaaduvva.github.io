@@ -71,7 +71,7 @@ section {
 }
 
 #experience .timeline-item::after {
-    height: calc(110% - 1rem);
+    height: calc(111% - 16px);
 }
 
 .timeline-item:last-child::after {
