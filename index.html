@@ -8,9 +8,15 @@
 	<meta name="description"
 		content="Ganesh Duvva, Full-Stack Software Engineer specializing in Laravel, Angular, and Node.js. Expert in building scalable web applications. Available for freelance and remote opportunities.">
 	<meta name="keywords"
-		content="Ganesh Duvva, ganaaduvva, Software Engineer, Full-Stack Developer, Laravel Developer, Angular Developer, 
-			BackEnd Developer, FrontEnd Developer, Portfolio, Hire Developer India, Remote Developer, Frontend and Backend Developer, 
-			Web Development Freelancer, PostgreSQL, Node.js, React.js, Laravel Expert, Angular Expert">
+		content="Ganesh Duvva, ganaaduvva, Full-Stack Developer, Full Stack Software Engineer, Laravel Developer, Angular Developer, 
+			Node.js Developer, React Developer, Backend Developer, Frontend Developer, GenAI Developer, Generative AI Developer, 
+			Agentic AI Developer, AI Engineer, Machine Learning Developer, Remote Software Engineer, Remote Full-Stack Developer, 
+			Freelance Developer, Freelance Software Engineer, Full-Time Developer Jobs, Remote Developer Jobs India, 
+			Hire Full-Stack Developer, Hire Remote Developer, Web Development Freelancer, API Development, REST API Developer, 
+			Microservices Developer, AWS Developer, Cloud Engineer, DevOps Engineer, PostgreSQL Expert, MySQL Developer, 
+			MongoDB Developer, Docker Expert, CI/CD Pipeline, Laravel Expert, Angular Expert, React.js Expert, 
+			Software Engineer for Hire, Remote Work Developer, Contract Developer, Hyderabad Developer, 
+			India Software Engineer, Available for Freelance, Available for Remote Work, Full-Time Remote Developer">
 	<meta name="author" content="Ganesh Duvva">
 	<!-- Open Graph Meta Tags for Social Sharing -->
 	<meta property="og:title" content="Ganesh Duvva - Software Engineer Portfolio">
@@ -31,6 +37,17 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800">
+	<!-- Page Loader -->
+	<div id="page-loader" class="fixed inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 z-50 flex items-center justify-center">
+		<div class="text-center">
+			<div class="loading-spinner mb-4"></div>
+			<p class="text-white text-lg">Loading Portfolio...</p>
+		</div>
+	</div>
+	
+	<!-- Custom cursor -->
+	<div class="cursor"></div>
+	<div class="cursor-follower"></div>
 	<!-- Navbar -->
 	<nav class="navbar fixed top-0 w-full z-50 text-white py-4" role="navigation" aria-label="Main navigation">
 		<div class="container mx-auto flex justify-between items-center px-4">
@@ -46,56 +63,77 @@
 				</label>
 				<div id="menu" class="space-x-6 md:flex md:items-center">
 					<a href="#about" class="hover:text-blue-400 transition" aria-label="About section">About</a>
-					<a href="#experience" class="hover:text-blue-400 transition"
-						aria-label="Experience section">Experience</a>
-					<a href="#education" class="hover:text-blue-400 transition"
-						aria-label="Education section">Education</a>
+					<a href="#experience" class="hover:text-blue-400 transition" aria-label="Experience section">Experience</a>
+					<a href="#education" class="hover:text-blue-400 transition" aria-label="Education section">Education</a>
 					<a href="#skills" class="hover:text-blue-400 transition" aria-label="Skills section">Skills</a>
-					<a href="#achievements" class="hover:text-blue-400 transition"
-						aria-label="Achievements section">Achievements</a>
-					<a href="#projects" class="hover:text-blue-400 transition"
-						aria-label="Projects section">Projects</a>
-					<!-- <a href="#testimonials" class="hover:text-blue-400 transition" aria-label="Testimonials section">Testimonials</a> -->
+					<a href="#achievements" class="hover:text-blue-400 transition" aria-label="Achievements section">Achievements</a>
+					<a href="#projects" class="hover:text-blue-400 transition" aria-label="Projects section">Projects</a>
 					<a href="#contact" class="hover:text-blue-400 transition" aria-label="Contact section">Contact</a>
 				</div>
-				<button id="dark-mode-toggle" class="ms-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600"
-					aria-label="Toggle dark mode">
-					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-							d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-					</svg>
-				</button>
 			</div>
 		</div>
 	</nav>
 
 	<!-- Hero Section -->
-	<section id="home" class="flex items-center justify-center text-white show-on-scroll"
+	<section id="home" class="flex items-center justify-center text-white show-on-scroll min-h-screen"
 		aria-labelledby="hero-heading">
 		<div id="particles-js"></div>
-		<div class="container text-center relative z-10">
-			<h1 id="hero-heading" class="text-5xl font-bold mb-4 sm:text-4xl">Hi, I'm Ganesh Duvva</h1>
-			<p class="text-2xl mb-6 sm:text-xl" aria-live="polite">
-				<span class="typed-text"></span>
-			</p>
-			<a id="cta" href="#projects"
-				class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition"
-				aria-label="View my projects">View My Work</a>
+		<div class="container relative z-10 px-4 md:px-8">
+			<div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+				<!-- Content Left (Mobile: Order 1) -->
+				<div class="lg:w-1/2 text-center lg:text-left order-1">
+					<h1 id="hero-heading" class="hero-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 leading-tight">
+						Hi, I'm<br>
+						<span class="hero-gradient-text">Ganesh Duvva</span>
+					</h1>
+					<p class="text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-6 lg:mb-8 text-gray-200" aria-live="polite">
+						< <span class="typed-text"></span> />
+					</p>
+					
+					<!-- Action Buttons -->
+					<div class="flex flex-row gap-2 sm:gap-6 justify-center lg:justify-start">
+						<a id="cta" href="#projects"
+							class="bg-white text-blue-600 px-4 py-2 sm:px-8 sm:py-4 rounded-xl font-semibold hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-center"
+							aria-label="View my projects">
+							<span class="hidden sm:inline">View My Work</span>
+							<span class="sm:hidden">My Work</span>
+						</a>
+						
+						<a href="/resume/Ganesh_Duvva_Resume.pdf" download="Ganesh_Duvva_Resume.pdf" 
+							class="resume-btn inline-flex items-center justify-center gap-1 sm:gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 sm:px-8 sm:py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+							<svg class="w-3 h-3 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+							</svg>
+							<span class="hidden sm:inline">Download Resume</span>
+							<span class="sm:hidden">Resume</span>
+						</a>
+					</div>
+				</div>
+				
+				<!-- Image Right (Mobile: Order 2) -->
+				<div class="lg:w-1/2 flex justify-center lg:justify-end order-2 md:mt-4">
+					<div class="hero-image-container">
+						<img src="images/Ganesh_Duvva.png" alt="Profile Picture of Ganesh Duvva"
+							class="hero-profile-img w-64 h-80 sm:w-72 sm:h-90 lg:w-80 lg:h-96 xl:w-96 xl:h-[28rem] object-cover" loading="lazy">
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
 	<!-- About Section -->
 	<section id="about" class="py-20 bg-white" aria-labelledby="about-heading">
+		<div class="floating-shapes">
+			<div class="floating-shape"></div>
+			<div class="floating-shape"></div>
+			<div class="floating-shape"></div>
+		</div>
 		<div class="container mx-auto px-4 md:px-24">
-			<h2 id="about-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl show-on-scroll">About Me</h2>
+			<h2 id="about-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl show-on-scroll gradient-text">About Me</h2>
 			<div class="flex flex-col md:flex-row items-center">
-				<div class="md:w-1/3 mb-8 md:mb-0">
-					<img src="images/Ganesh_Duvva.png" alt="Profile Picture of Ganesh Duvva"
-						class="rounded-full mx-auto w-64 h-64 sm:w-48 sm:h-48 show-on-scroll" loading="lazy">
-				</div>
-				<div class="md:w-1/2">
+				<div class="max-w-4xl text-center mx-auto">
 					<p class="about-text mb-4 font-medium sm:text-base show-on-scroll">
-						I’m Ganesh Duvva, a Full Stack Software Engineer with nearly 2 years of experience building
+						I’m Ganesh Duvva, a Full Stack Software Engineer with nearly 2.5+ years of experience building
 						scalable,
 						high-performance web applications using Laravel, Angular, and AWS.
 					</p> 
@@ -110,10 +148,10 @@
 					</p>
 					<p class="about-text mb-4 font-medium sm:text-base show-on-scroll">
 						Beyond coding, I mentor peers, contribute to open-source projects, and continuously explore new
-						technologies like React.js and Node.js to stay at the forefront of innovation.
+						technologies like GenAI, Agentic AI to stay at the forefront of innovation.
 					</p>
 					<p class="about-text mb-4 font-medium sm:text-base show-on-scroll">
-						Along with that, I am open to freelance and remote opportunities where I can leverage my skills to build
+						Along with that, I am open to freelance and remote opportunities where I can leverage my skills to bring ideas to life!
 					</p>
 				</div>
 			</div>
@@ -123,119 +161,138 @@
 	<!-- Experience Section -->
 	<section id="experience" class="py-20 bg-gray-100" aria-labelledby="experience-heading">
 		<div class="container mx-auto px-4 md:px-20">
-			<h2 id="experience-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl">Experience</h2>
+			<h2 id="experience-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl gradient-text">Experience</h2>
 			<div class="max-w-3xl mx-auto">
-				<div class="timeline-item show-on-scroll">
-					<h3 class="text-2xl font-semibold sm:text-xl">Software Engineer, Associate</h3>
-					<p class="text-blue-600 font-medium sm:text-sm">
-						<a href="#">Infor India Pvt Ltd</a> | Jun 2025 - Present
-					</p>
-					<ul class="list-disc pl-5 mt-2 text-gray-600 sm:text-md">
+				
+				<!-- Infor India -->
+				<div class="timeline-item show-on-scroll" data-experience="infor">
+					<div class="timeline-header">
+						<div class="company-logo">
+							<img src="./images/webImages/InforLogo.png" alt="Infor Logo" onerror="this.style.display='none'">
+						</div>
+						<div class="timeline-title-section">
+							<h3 class="text-2xl font-semibold sm:text-xl">Software Engineer, Associate</h3>
+							<p class="text-blue-600 font-medium sm:text-sm">
+								<a href="https://www.infor.com" target="_blank">Infor India Pvt Ltd</a> | Jun 2025 - Present
+							</p>
+						</div>
+						<button class="expand-btn" onclick="toggleExperience('infor')">
+							<svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+								<path d="M8 11L3 6h10l-5 5z"/>
+							</svg>
+						</button>
+					</div>
+					<ul class="timeline-content hidden list-disc pl-5 text-gray-600 sm:text-md">
 						<li>
-							Implemented <b>OData protocol</b> to enable efficient data querying and manipulation,
-							connecting <b>Angular frontend</b> with <b>Infor LN ERP modules</b> via standardized REST APIs,
-							achieving real-time data synchronization and improving system responsiveness for
-							<b>10,000+ enterprise users</b>.
+							Implemented <b>OData protocol</b> connecting <b>Angular frontend</b> with <b>Infor LN ERP modules</b>, 
+							achieving real-time data synchronization for <b>30+ Customers</b>.
+						</li>
+						<li>
+							Refactored <b>legacy codebase</b> into modern <b>Angular framework</b> using <b>Kendo UI components</b>, 
+							improving development efficiency by <b>40%</b>.
+						</li>
+						<li>
+							Developed enterprise-grade interfaces with <b>Kendo UI for Angular</b> implementing advanced features 
+							like filtering, sorting, and data virtualization for optimal performance.
 						</li>
 						<li>
 							Collaborated with cross-functional teams to integrate <b>Angular-based UI components</b>
 							with Infor LN backend systems using <b>OData REST APIs</b>, ensuring seamless data flow for
 							production planning and material management processes.
 						</li>
+					</ul>
+				</div>
+
+				<!-- Pixelvide - Software Engineer 1 -->
+				<div class="timeline-item show-on-scroll" data-experience="pixelvide1">
+					<div class="timeline-header">
+						<div class="company-logo">
+							<img src="./images/webImages/PixelvideLogo.webp" alt="Pixelvide Logo" onerror="this.style.display='none'">
+						</div>
+						<div class="timeline-title-section">
+							<h3 class="text-2xl font-semibold sm:text-xl">Software Engineer 1</h3>
+							<p class="text-blue-600 font-medium sm:text-sm">
+								<a href="https://pixelvide.com/" target="_blank">Pixelvide</a> | Oct 2023 - Jun 2025
+							</p>
+						</div>
+						<button class="expand-btn" onclick="toggleExperience('pixelvide1')">
+							<svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+								<path d="M8 11L3 6h10l-5 5z"/>
+							</svg>
+						</button>
+					</div>
+					<ul class="timeline-content hidden list-disc pl-5 text-gray-600 sm:text-md">
 						<li>
-							Refactored a <b>legacy codebase</b> into a modern <b>Angular framework</b> using
-							<b>Kendo UI components</b>, applying component-based architecture and TypeScript best practices,
-							improving maintainability, scalability, and development efficiency by <b>25%</b>.
+							Developed <b>Dhairya Counselling System</b> for Telangana Women Safety Wing using Laravel and Angular, 
+							streamlining operations for <b>500+ monthly users</b>.
 						</li>
 						<li>
-							Developed enterprise-grade interfaces using <b>Kendo UI for Angular</b> (grids, charts,
-							forms, dialogs), implementing advanced features such as <b>filtering, sorting, pagination,
-							and data virtualization</b> to ensure optimal performance with large datasets.
+							Optimized <b>IFMIS Bills Module</b> by refining PostgreSQL queries, cutting execution time by <b>20%</b> 
+							for <b>58,000+ government users</b>.
+						</li>
+						<li>
+							Led <b>IFMIS DA GO120 Enhancement</b>, developing Laravel-based <b>REST APIs</b> reducing processing time 
+							by <b>10%</b> for <b>4,35,000+ state employees</b>.
+						</li>
+						<li>
+							Deployed solutions on <b>AWS</b> using CI/CD pipelines and Docker, enhancing system uptime by <b>25%</b>.
+						</li>
+						<li>
+							Engineered <b>User, Agency, and Counsellor Management</b> Modules, integrating conference call APIs 
+							and SMS services, reducing client response time by 15%.
+						</li>
+						<li>
+							<b>Designed and tested</b> 50+ REST APIs using Postman, ensuring 100% frontend-backend integration 
+							in <b>Agile sprints</b>, improving sprint delivery efficiency by 15%.
+						</li>
+						<li>
+							Authored 200+ <b>Unit Test Cases</b> using PHPUnit and Jest, increasing code reliability by 30% 
+							and reducing bugs by 25%.
+						</li>
+						<li>
+							Spearheaded cross-functional collaboration using Git and Docker, boosting system availability by 30%.
 						</li>
 					</ul>
 				</div>
-				<div class="timeline-item show-on-scroll">
-					<h3 class="text-2xl font-semibold sm:text-xl">Software Engineer 1</h3>
-					<p class="text-blue-600 font-medium sm:text-sm"><a href="https://pixelvide.com/">Pixelvide</a> | Oct
-						2023 - Jun 2025</p>
-					<p class="text-gray-600 mt-2 sm:text-md">
-					<ul class="list-disc pl-5 mt-2 text-gray-600 sm:text-md">
+
+				<!-- Pixelvide - SDE Intern -->
+				<div class="timeline-item show-on-scroll" data-experience="pixelvide2">
+					<div class="timeline-header">
+						<div class="company-logo">
+							<img src="./images/webImages/PixelvideLogo.webp" alt="Pixelvide Logo" onerror="this.style.display='none'">
+						</div>
+						<div class="timeline-title-section">
+							<h3 class="text-2xl font-semibold sm:text-xl">SDE Intern</h3>
+							<p class="text-blue-600 font-medium sm:text-sm">
+								<a href="https://pixelvide.com/" target="_blank">Pixelvide</a> | Jun 2020 - Dec 2022
+							</p>
+						</div>
+						<button class="expand-btn" onclick="toggleExperience('pixelvide2')">
+							<svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+								<path d="M8 11L3 6h10l-5 5z"/>
+							</svg>
+						</button>
+					</div>
+					<ul class="timeline-content hidden list-disc pl-5 text-gray-600 sm:text-md">
 						<li>
-							Developed <b>Dhairya Counselling System</b> for Telangana Women Safety Wing using Laravel
-							and
-							Angular, creating a dashboard that streamlined appointment booking and call management for
-							500+ monthly users in a 4-member Agile team.
-						</li>
-						<li>
-							Engineered <b>User, Agency, and Counsellor Management</b> Modules for Dhairya,
-							<b>Integrating
-								conference call APIs and SMS services</b>, reducing client response time by 15% and
-							improving
-							petition tracking accuracy by 20%.
-						</li>
-						<li>
-							Deployed Dhairya on <b>AWS</b> using CI/CD pipelines and Docker, enhancing system uptime by
-							25%
-							and supporting scalability for 1,000+ concurrent users.
-						</li>
-						<li>
-							Optimized <b>IFMIS Bills Module</b> by refining PostgreSQL queries, cutting execution time
-							by 20%
-							and accelerating financial workflows for 58,000+ Telangana government users.
-						</li>
-						<li>
-							Led <b>IFMIS DA GO120 Enhancement</b>, developing Laravel-based <b>REST APIs</b> that
-							modernized
-							financial processes, reducing processing time by 10% for <b>4,35,000+ state employees</b>.
-						</li>
-						<li>
-							<b>Designed and tested</b> 50+ REST APIs using Postman, ensuring 100% frontend-backend
-							integration in <b>Agile sprints</b> managed via Jira, improving sprint delivery efficiency
-							by 15%.
-						</li>
-						<li>
-							Authored 200+ <b>Unit Test Cases</b> for Dhairya and IFMIS using PHPUnit and Jest,
-							increasing code
-							reliability by 30% and reducing bugs by 25%.
-						</li>
-						<li>
-							Spearheaded cross-functional collaboration using Git and Docker, delivering scalable
-							<b>E-Governance</b> solutions on AWS, boosting system availability by 30% and cutting
-							deployment
-							time by 15 minutes per cycle.
-						</li>
-					</ul>
-					</p>
-				</div>
-				<div class="timeline-item show-on-scroll">
-					<h3 class="text-2xl font-semibold sm:text-xl">SDE Intern</h3>
-					<p class="text-blue-600 font-medium sm:text-sm"><a href="https://pixelvide.com/">Pixelvide</a> | Jun
-						2020 - Dec 2022</p>
-					<p class="text-gray-600 mt-2 sm:text-sm">
-					<ul class="list-disc pl-5 mt-2 text-gray-600 sm:text-md">
-						<li>
-							Developed responsive frontend components using HTML, CSS, JavaScript, and AngularJS,
+							Developed responsive frontend components using <b>HTML, CSS, JavaScript, and AngularJS</b>, 
 							improving user experience across client-facing modules.
 						</li>
 						<li>
-							Built backend APIs with PHP and Laravel, contributing to production-ready application
-							modules within the internship timeframe.
+							Built backend APIs with <b>PHP and Laravel</b>, contributing to production-ready application modules.
 						</li>
 						<li>
-							Designed and optimized PostgreSQL databases, achieving high data integrity and improved
-							query performance.
+							Designed and optimized <b>PostgreSQL databases</b>, achieving high data integrity and improved query performance.
 						</li>
 						<li>
-							Delivered two fully functional end-to-end modules by the end of the internship,
-							demonstrating readiness for production-level work.
+							Delivered two fully functional end-to-end modules, demonstrating readiness for production-level work.
 						</li>
 						<li>
-							Gained practical experience in full-stack development and Agile best practices, preparing
-							for a seamless transition to a full-time engineering role.
+							Gained practical experience in full-stack development and Agile best practices.
 						</li>
 					</ul>
-					</p>
 				</div>
+
 			</div>
 		</div>
 	</section>
@@ -243,45 +300,83 @@
 	<!-- Education Section -->
 	<section id="education" class="py-20 bg-white" aria-labelledby="education-heading">
 		<div class="container mx-auto px-4 md:px-20">
-			<h2 id="education-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl">Education</h2>
+			<h2 id="education-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl gradient-text">Education</h2>
 			<div class="max-w-3xl mx-auto">
-				<div class="timeline-item show-on-scroll">
-					<h3 class="text-2xl font-semibold sm:text-xl">B.Tech in Computer Science Engineering</h3>
-					<p class="text-blue-600 font-medium sm:text-sm">SVS Group of Institutions | 2016 - 2018</p>
-					<p class="text-gray-600 mt-2 sm:text-sm">
-						<ul class="list-disc pl-5 mt-2 text-gray-600 sm:text-md">
-							<li>
-								Graduated with a <b>7.4 GPA</b> under <b>Jawaharlal Nehru Technological University Hyderabad</b>
-							</li>
-							<li>
- 								Learned about Engineering, Personal Development, Soft Skills, and technical knowledge. 
-							</li>
-							<li>
-								Been volunteered for the cultural fest, events, and placement sessions by over 100000+ 
-								students.								
-							</li>
-						</ul>
-					</p>
+				
+				<!-- B.Tech -->
+				<div class="timeline-item show-on-scroll" data-experience="btech">
+					<div class="timeline-header">
+						<div class="company-logo education-icon">
+							<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+								<path d="M6 12v5c3 3 9 3 12 0v-5"/>
+							</svg>
+						</div>
+						<div class="timeline-title-section">
+							<h3 class="text-2xl font-semibold sm:text-xl">B.Tech in Computer Science Engineering</h3>
+							<p class="text-blue-600 font-medium sm:text-sm">SVS Group of Institutions | 2016 - 2018</p>
+						</div>
+						<button class="expand-btn" onclick="toggleExperience('btech')">
+							<svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+								<path d="M8 11L3 6h10l-5 5z"/>
+							</svg>
+						</button>
+					</div>
+					<ul class="timeline-content hidden list-disc pl-5 text-gray-600 sm:text-md">
+						<li>
+							Graduated with <b>7.4 GPA</b> under <b>Jawaharlal Nehru Technological University Hyderabad</b>
+						</li>
+						<li>
+							Focused on Engineering, Personal Development, Soft Skills, and technical knowledge
+						</li>
+						<li>
+							Volunteered for cultural fest, events, and placement sessions engaging with 100,000+ students
+						</li>
+					</ul>
 				</div>
-				<div class="timeline-item show-on-scroll">
-					<h3 class="text-2xl font-semibold sm:text-xl">Intermediate Education (MPC)</h3>
-					<p class="text-blue-600 font-medium sm:text-sm">NRI Junior College | 2012 - 2016</p>
-					<p class="text-gray-600 mt-2 sm:text-sm">
-						<ul class="list-disc pl-5 mt-2 text-gray-600 sm:text-md">
-							<li>
-								Completed intermediate studies in Mathematics, Physics, and Chemistry with <b>9.2 GPA</b> and focus on analytical thinking and problem-solving, achieving a strong academic foundation.
-							</li>
-						</ul>
-					</p>
+
+				<!-- Intermediate -->
+				<div class="timeline-item show-on-scroll" data-experience="intermediate">
+					<div class="timeline-header">
+						<div class="company-logo education-icon">
+							<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+								<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+							</svg>
+						</div>
+						<div class="timeline-title-section">
+							<h3 class="text-2xl font-semibold sm:text-xl">Intermediate Education (MPC)</h3>
+							<p class="text-blue-600 font-medium sm:text-sm">NRI Junior College | 2012 - 2016</p>
+						</div>
+						<button class="expand-btn" onclick="toggleExperience('intermediate')">
+							<svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+								<path d="M8 11L3 6h10l-5 5z"/>
+							</svg>
+						</button>
+					</div>
+					<ul class="timeline-content hidden list-disc pl-5 text-gray-600 sm:text-md">
+						<li>
+							Completed intermediate studies in Mathematics, Physics, and Chemistry with <b>9.2 GPA</b>
+						</li>
+						<li>
+							Focused on analytical thinking and problem-solving, achieving a strong academic foundation
+						</li>
+					</ul>
 				</div>
+
 			</div>
 		</div>
 	</section>
 
 	<!-- Skills Section -->
 	<section id="skills" class="py-20 bg-gray-100" aria-labelledby="skills-heading">
+		<div class="floating-shapes">
+			<div class="floating-shape"></div>
+			<div class="floating-shape"></div>
+			<div class="floating-shape"></div>
+		</div>
 		<div class="container mx-auto px-4 md:px-20">
-			<h2 id="skills-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl">Skills</h2>
+			<h2 id="skills-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl gradient-text">Skills</h2>
 			<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
 				<!-- Languages -->
 				<div class="skill-card show-on-scroll poper">
@@ -389,20 +484,25 @@
 
 	<!-- Achievements Section -->
 	<section id="achievements" class="py-20 bg-white" aria-labelledby="achievements-heading">
+		<div class="floating-shapes">
+			<div class="floating-shape"></div>
+			<div class="floating-shape"></div>
+			<div class="floating-shape"></div>
+		</div>
 		<div class="container mx-auto px-4 md:px-20">
-			<h2 id="achievements-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl">Achievements</h2>
+			<h2 id="achievements-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl gradient-text">Achievements</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-				<div class="achievement-card bg-gray-50 p-6 rounded-lg shadow-md text-center show-on-scroll  poper">
+				<div class="achievement-card p-6 rounded-lg shadow-md text-center show-on-scroll poper">
 					<h3 class="text-xl font-semibold mb-2 sm:text-lg">Certified in Google Cloud tasks</h3>
 					<p class="text-blue-600 font-medium sm:text-sm">2021</p>
 					<p class="text-gray-600 mt-2 sm:text-sm">Foundational Data, ML, AI, Infrastructure, and Cloud Environment Setup</p>
 				</div>
-				<div class="achievement-card bg-gray-50 p-6 rounded-lg shadow-md text-center show-on-scroll  poper">
+				<div class="achievement-card p-6 rounded-lg shadow-md text-center show-on-scroll poper">
 					<h3 class="text-xl font-semibold mb-2 sm:text-lg">Ranked Top 2 Contributor</h3>
 					<p class="text-blue-600 font-medium sm:text-sm">2021</p>
 					<p class="text-gray-600 mt-2 sm:text-sm">Under GWOC in Database Domain</p>
 				</div>
-				<div class="achievement-card bg-gray-50 p-6 rounded-lg shadow-md text-center show-on-scroll  poper">
+				<div class="achievement-card p-6 rounded-lg shadow-md text-center show-on-scroll poper">
 					<h3 class="text-xl font-semibold mb-2 sm:text-lg">Ranked Top 7 Contributor</h3>
 					<p class="text-blue-600 font-medium sm:text-sm">2021</p>
 					<p class="text-gray-600 mt-2 sm:text-sm">Under GWOC in Java Domain</p>
@@ -414,9 +514,9 @@
 	<!-- Projects Section -->
 	<section id="projects" class="py-20 bg-gray-100" aria-labelledby="projects-heading">
 		<div class="container mx-auto px-4 md:px-20">
-			<h2 id="projects-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl">Projects</h2>
+			<h2 id="projects-heading" class="text-4xl font-bold text-center mb-12 sm:text-3xl gradient-text">Projects</h2>
 			<div id="project-grid" class="flex justify-center grid grid-cols-1 sm:grid-cols-2  gap-8">
-				<div class="project-card bg-gray-50 p-6 rounded-lg shadow-md show-on-scroll poper">
+				<div class="project-card p-6 rounded-lg shadow-md show-on-scroll poper">
 					<img src="/images/webImages/ifmis_tg.png" alt="IFMIS App"
 						class="w-full h-48 object-contain rounded-md mb-4" loading="lazy">
 					<h3 class="text-2xl font-semibold mb-2 sm:text-xl">IFMIS (Integrated Finance Management System)</h3>
@@ -427,7 +527,7 @@
 							aria-label="IFMIS App live demo">Live Demo</a>
 					</div>
 				</div>
-				<div class="project-card bg-gray-50 p-6 rounded-lg shadow-md show-on-scroll poper">
+				<div class="project-card p-6 rounded-lg shadow-md show-on-scroll poper">
 					<img src="/images/webImages/dhairya_cms.png" alt="Dhairya App"
 						class="w-full h-48 object-contain rounded-md mb-4" loading="lazy">
 					<h3 class="text-2xl font-semibold mb-2 sm:text-xl">Dhairya (Counselling Management System)</h3>

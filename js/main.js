@@ -1,32 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navbar scroll effect
+    // Page loader
+    const pageLoader = document.getElementById('page-loader');
+    
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            pageLoader.style.opacity = '0';
+            pageLoader.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                pageLoader.style.display = 'none';
+            }, 500);
+        }, 1000);
+    });
+
+    // Custom cursor
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        setTimeout(() => {
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        }, 100);
+    });
+
+    // Cursor hover effects
+    const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-card, .achievement-card, .resume-btn');
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'scale(1.5)';
+            cursorFollower.style.transform = 'scale(1.5)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'scale(1)';
+            cursorFollower.style.transform = 'scale(1)';
+        });
+    });
+    // Navbar scroll effect and hero image scroll animation
     const navbar = document.querySelector('.navbar');
+    const heroImageContainer = document.querySelector('.hero-image-container');
+    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        const scrolled = window.scrollY;
+        
+        // Navbar scroll effect
+        if (scrolled > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+        
+        // Hero image scroll-triggered hover effect
+        if (heroImageContainer) {
+            if (scrolled > 50) {
+                heroImageContainer.classList.add('scroll-active');
+            } else {
+                heroImageContainer.classList.remove('scroll-active');
+            }
+        }
     });
-
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-    darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDarkMode = body.classList.contains('dark-mode');
-        darkModeToggle.innerHTML = isDarkMode
-            ? `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>`
-            : `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`;
-        localStorage.setItem('darkMode', isDarkMode);
-    });
-
-    // Load dark mode preference (default to dark mode)
-    const darkModePreference = localStorage.getItem('darkMode') !== 'false';
-    if (darkModePreference) {
-        body.classList.add('dark-mode');
-        darkModeToggle.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>`;
-    }
 
     // Show on scroll effect with Intersection Observer
     const scrollElements = document.querySelectorAll('.show-on-scroll');
@@ -77,28 +112,135 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.typed-text').textContent = 'Full-Stack Developer';
     }
 
-    // Particle.js for Hero section
+    // Particle.js for Hero section with enhanced config
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
-                opacity: { value: 0.5, random: true, anim: { enable: false } },
-                size: { value: 3, random: true, anim: { enable: false } },
-                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+                number: { value: 120, density: { enable: true, value_area: 800 } },
+                color: { value: ['#3b82f6', '#a855f7', '#ec4899'] },
+                shape: { 
+                    type: ['circle', 'triangle'], 
+                    stroke: { width: 0, color: '#000000' } 
+                },
+                opacity: { 
+                    value: 0.6, 
+                    random: true, 
+                    anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } 
+                },
+                size: { 
+                    value: 4, 
+                    random: true, 
+                    anim: { enable: true, speed: 2, size_min: 0.1, sync: false } 
+                },
+                line_linked: { 
+                    enable: true, 
+                    distance: 150, 
+                    color: '#ffffff', 
+                    opacity: 0.3, 
+                    width: 1 
+                },
+                move: { 
+                    enable: true, 
+                    speed: 3, 
+                    direction: 'none', 
+                    random: true, 
+                    straight: false, 
+                    out_mode: 'out', 
+                    bounce: false,
+                    attract: { enable: false, rotateX: 600, rotateY: 1200 }
+                }
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+                events: { 
+                    onhover: { enable: true, mode: 'repulse' }, 
+                    onclick: { enable: true, mode: 'push' }, 
+                    resize: true 
+                },
+                modes: { 
+                    repulse: { distance: 120, duration: 0.4 }, 
+                    push: { particles_nb: 6 } 
+                }
             },
             retina_detect: true
         });
     } else {
         console.error('Particle.js not loaded');
     }
+
+    // Smooth scroll with offset for navbar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Mobile menu functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuLinks = document.querySelectorAll('#menu a');
+    const menu = document.getElementById('menu');
+    
+    // Close menu when clicking on a link
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.checked = false;
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu when clicking on close button (::before pseudo-element)
+    menu.addEventListener('click', (e) => {
+        const rect = menu.getBoundingClientRect();
+        const closeButtonArea = {
+            top: rect.top + 32,
+            right: rect.right - 32,
+            bottom: rect.top + 82,
+            left: rect.right - 82
+        };
+        
+        if (e.clientX >= closeButtonArea.left && 
+            e.clientX <= closeButtonArea.right && 
+            e.clientY >= closeButtonArea.top && 
+            e.clientY <= closeButtonArea.bottom) {
+            menuToggle.checked = false;
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close menu when clicking outside menu items
+    menu.addEventListener('click', (e) => {
+        if (e.target === menu) {
+            menuToggle.checked = false;
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Simple menu toggle - only control overflow
+    menuToggle.addEventListener('change', () => {
+        if (menuToggle.checked) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Add parallax effect to floating shapes
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const shapes = document.querySelectorAll('.floating-shape');
+        
+        shapes.forEach((shape, index) => {
+            const speed = 0.5 + (index * 0.1);
+            shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+        });
+    });
 
     // Testimonials carousel
     // const carousel = document.querySelector('.carousel');
@@ -133,3 +275,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize carousel
     // updateCarousel();
 });
+
+// Toggle Experience/Education Expand/Collapse
+function toggleExperience(id) {
+    const timelineItem = document.querySelector(`[data-experience="${id}"]`);
+    const timelineContent = timelineItem.querySelector('.timeline-content');
+    const expandBtn = timelineItem.querySelector('.expand-btn');
+    const expandIcon = expandBtn.querySelector('.expand-icon');
+    
+    // Toggle between hidden and show classes
+    if (timelineContent.classList.contains('hidden')) {
+        timelineContent.classList.remove('hidden');
+        // Use setTimeout to trigger transition after display change
+        setTimeout(() => {
+            timelineContent.classList.add('show');
+        }, 10);
+        expandIcon.style.transform = 'rotate(180deg)';
+    } else {
+        timelineContent.classList.remove('show');
+        expandIcon.style.transform = 'rotate(0deg)';
+        // Wait for transition to complete before hiding
+        setTimeout(() => {
+            timelineContent.classList.add('hidden');
+        }, 500);
+    }
+}
